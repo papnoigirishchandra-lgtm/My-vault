@@ -60,9 +60,7 @@ function Sidebar() {
     <aside className="fixed bottom-0 left-0 top-0 z-40 flex h-[100dvh] w-64 flex-col border-r border-slate-200 bg-white shadow-sm">
       <div className="p-6">
         <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg gradient-button font-bold text-white shadow-md">
-            V
-          </div>
+          <img src="/logo.svg" alt="Vault Logo" className="h-9 w-9" />
           <span className="text-xl font-bold tracking-tight text-[#334155]">Vault</span>
         </Link>
       </div>

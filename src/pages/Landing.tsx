@@ -49,7 +49,7 @@ function ProductPreview() {
       <div className="grid min-h-[24rem] grid-cols-[3.5rem_1fr] sm:grid-cols-[10rem_1fr]">
         <aside className="border-r border-slate-100 bg-slate-50/20 p-3">
           <div className="mb-6 flex items-center gap-2">
-            <div className="h-6 w-6 rounded bg-[#334155]" />
+            <img src="/logo.svg" alt="Vault Logo" className="h-6 w-6" />
             <div className="h-3 w-12 rounded bg-slate-200" />
           </div>
           {[1, 2, 3, 4].map((i) => (
@@ -85,9 +85,7 @@ export default function Landing() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur-sm">
         <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-8 sm:px-12">
           <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg gradient-button font-bold text-white shadow-md">
-              V
-            </div>
+            <img src="/logo.svg" alt="Vault Logo" className="h-8 w-8" />
             <span className="text-base font-bold tracking-tight text-indigo-900">Vault</span>
           </Link>
           <nav className="hidden items-center gap-10 text-[13px] font-bold text-slate-500 md:flex">
@@ -176,7 +174,7 @@ export default function Landing() {
       <footer className="border-t border-slate-100 py-16 bg-white">
         <div className="mx-auto max-w-7xl px-8 sm:px-12 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-3">
-            <div className="h-8 w-8 rounded-lg gradient-button" />
+            <img src="/logo.svg" alt="Vault Logo" className="h-8 w-8" />
             <span className="font-bold text-indigo-950 text-lg tracking-tight">Vault</span>
           </div>
           <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.2em]">© 2026 Vault Dashboard</p>
