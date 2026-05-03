@@ -39,7 +39,7 @@ const metrics = [
 
 function ProductPreview() {
   return (
-    <div className="pointer-events-none absolute inset-x-4 bottom-[-5rem] mx-auto max-w-5xl rounded-lg border border-slate-200 bg-white shadow-2xl sm:bottom-[-7rem] lg:inset-x-auto lg:right-12 lg:top-32 lg:bottom-auto lg:w-[50rem]">
+    <div className="relative z-20 mx-auto mt-16 max-w-5xl rounded-[2rem] border border-slate-200 bg-white shadow-2xl lg:absolute lg:inset-x-auto lg:right-12 lg:top-32 lg:mt-0 lg:w-[50rem] lg:rounded-lg">
       <div className="flex h-8 items-center gap-1.5 border-b border-slate-100 bg-slate-50/50 px-3">
         <span className="h-2 w-2 rounded-full bg-slate-200" />
         <span className="h-2 w-2 rounded-full bg-slate-200" />
@@ -102,13 +102,13 @@ export default function Landing() {
       </header>
 
       <main>
-        <section className="relative min-h-[650px] overflow-hidden pt-32 sm:min-h-[750px] lg:min-h-[700px] bg-[#f8fafc]">
+        <section className="relative min-h-screen lg:min-h-[700px] pt-32 pb-20 lg:pb-0 bg-[#f8fafc]">
           <div className="absolute inset-0 bg-grid-slate-200 [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.6))]" />
           <div className="absolute inset-x-0 top-0 h-[500px] bg-gradient-to-b from-indigo-50/50 to-transparent" />
           
           <div className="relative z-10 mx-auto max-w-7xl px-8 sm:px-12">
             <div className="max-w-3xl pt-10 sm:pt-16">
-              <h1 className="text-5xl font-black leading-[1.1] tracking-tight sm:text-7xl">
+              <h1 className="text-4xl font-black leading-[1.1] tracking-tight sm:text-7xl">
                 <span className="gradient-text">The structured hub</span> <br />
                 for your digital assets.
               </h1>
@@ -131,9 +131,9 @@ export default function Landing() {
           <ProductPreview />
         </section>
 
-        <section id="features" className="py-32 bg-white relative">
-          <div className="mx-auto max-w-7xl px-8 sm:px-12">
-            <div className="grid gap-16 md:grid-cols-3">
+        <section id="features" className="py-20 lg:py-32 bg-white relative">
+          <div className="mx-auto max-w-7xl px-6 sm:px-12">
+            <div className="grid gap-12 lg:gap-16 md:grid-cols-3">
               {features.map((feature) => (
                 <article key={feature.title} className="group">
                   <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 border border-indigo-100 transition-all group-hover:bg-indigo-600 group-hover:text-white group-hover:shadow-lg group-hover:shadow-indigo-500/20">

@@ -95,20 +95,20 @@ export default function Settings() {
           <div className="space-y-4">
             <div className="space-y-2">
               <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Change Password</label>
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Input 
                   type="password" 
                   placeholder="Enter new secure password" 
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
-                  className="rounded-xl border-slate-200 bg-slate-50/50"
+                  className="h-12 rounded-xl border-slate-200 bg-slate-50/50"
                 />
                 <Button 
                   onClick={handleUpdatePassword} 
                   disabled={loading || !newPassword}
-                  className="rounded-xl gradient-button font-bold text-xs px-6"
+                  className="h-12 rounded-xl gradient-button font-bold text-sm px-6"
                 >
-                  {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Update"}
+                  {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : "Update Password"}
                 </Button>
               </div>
             </div>
@@ -215,7 +215,7 @@ export default function Settings() {
               key={section.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white border border-slate-200 rounded-[32px] p-8 shadow-sm hover:shadow-md transition-shadow"
+              className="bg-white border border-slate-200 rounded-[2rem] lg:rounded-[32px] p-6 lg:p-8 shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center gap-3 mb-8">
                 <div className="h-8 w-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">

@@ -58,13 +58,13 @@ export function EditAssetModal({ isOpen, onClose, asset, type }: EditAssetModalP
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="sm:max-w-md p-0 border-none bg-transparent shadow-none">
+      <DialogContent className="w-[95vw] sm:max-w-md p-0 border-none bg-transparent shadow-none">
         <motion.div 
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          className="bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-100 ring-1 ring-slate-200/50"
+          className="bg-white rounded-[2rem] sm:rounded-3xl overflow-hidden shadow-2xl border border-slate-100 ring-1 ring-slate-200/50"
         >
-          <DialogHeader className="px-8 py-6 border-b border-slate-100 bg-slate-50/50">
+          <DialogHeader className="px-6 sm:px-8 py-5 sm:py-6 border-b border-slate-100 bg-slate-50/50">
             <div className="flex items-center gap-4">
               <div className="h-10 w-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center border border-indigo-100">
                 {type === 'file' ? <FileEdit className="w-5 h-5" /> : <Link2 className="w-5 h-5" />}
@@ -78,7 +78,7 @@ export function EditAssetModal({ isOpen, onClose, asset, type }: EditAssetModalP
             </div>
           </DialogHeader>
 
-          <form onSubmit={handleSubmit} className="p-8 space-y-6">
+          <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-6">
             <div className="space-y-2">
               <Label htmlFor="edit-title" className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Display Title</Label>
               <Input 

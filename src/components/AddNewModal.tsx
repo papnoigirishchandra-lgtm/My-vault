@@ -192,9 +192,9 @@ export function AddNewModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && handleClose()}>
-      <DialogContent className="sm:max-w-xl p-0 border-none bg-transparent shadow-none gap-0">
-        <div className="bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-100 ring-1 ring-slate-200/50">
-          <DialogHeader className="px-8 py-6 border-b border-slate-100 bg-slate-50/50">
+      <DialogContent className="w-[95vw] sm:max-w-xl p-0 border-none bg-transparent shadow-none gap-0">
+        <div className="bg-white rounded-[2rem] sm:rounded-3xl overflow-hidden shadow-2xl border border-slate-100 ring-1 ring-slate-200/50">
+          <DialogHeader className="px-6 sm:px-8 py-5 sm:py-6 border-b border-slate-100 bg-slate-50/50">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 {step === 2 && (
@@ -214,7 +214,7 @@ export function AddNewModal({
             </div>
           </DialogHeader>
 
-          <div className="p-8">
+          <div className="p-6 sm:p-8">
             <AnimatePresence mode="wait">
               {step === 1 ? (
                 <motion.div 
@@ -222,7 +222,7 @@ export function AddNewModal({
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
-                  className="grid grid-cols-3 gap-6"
+                  className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6"
                 >
                   {[
                     { type: 'file' as AddType, icon: FileIcon, label: 'Upload File', color: 'bg-blue-50 text-blue-600 border-blue-100 hover:bg-blue-600' },
@@ -232,14 +232,14 @@ export function AddNewModal({
                     <button 
                       key={option.type}
                       onClick={() => handleSelectType(option.type)}
-                      className="flex flex-col items-center gap-4 p-6 rounded-2xl border border-slate-100 bg-white hover:bg-slate-50 transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-indigo-500/5 group"
+                      className="flex sm:flex-col items-center gap-4 p-4 sm:p-6 rounded-2xl border border-slate-100 bg-white hover:bg-slate-50 transition-all hover:scale-[1.02] hover:shadow-xl hover:shadow-indigo-500/5 group"
                     >
                       <div className={cn(
                         "w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:text-white",
                         option.color.split(' ').slice(0,3).join(' '),
                         option.color.split(' ').pop()
                       )}>
-                        <option.icon className="w-7 h-7" />
+                        <option.icon className="w-5 h-5 sm:w-7 sm:h-7" />
                       </div>
                       <span className="text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-900 transition-colors">{option.label}</span>
                     </button>
@@ -286,7 +286,7 @@ export function AddNewModal({
                           onDrop={handleDrop}
                           onClick={() => fileInputRef.current?.click()}
                           className={cn(
-                            "group relative flex flex-col items-center justify-center gap-4 rounded-2xl border-2 border-dashed p-10 transition-all cursor-pointer",
+                            "group relative flex flex-col items-center justify-center gap-4 rounded-2xl border-2 border-dashed p-6 sm:p-10 transition-all cursor-pointer",
                             isDragging ? "border-indigo-500 bg-indigo-50" : "border-slate-200 hover:border-indigo-400 hover:bg-slate-50"
                           )}
                         >

@@ -97,12 +97,12 @@ export default function NoteEditor() {
     <motion.div 
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="h-[calc(100vh-10rem)] flex flex-col bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-2xl shadow-slate-200/50"
+      className="h-[calc(100vh-8rem)] lg:h-[calc(100vh-10rem)] flex flex-col bg-white border border-slate-200 rounded-[2rem] lg:rounded-3xl overflow-hidden shadow-2xl shadow-slate-200/50"
     >
       {/* Header */}
-      <div className="h-20 border-b border-slate-100 bg-white flex items-center justify-between px-8">
-        <div className="flex items-center gap-6 flex-1">
-          <Link href="/notes" className="text-slate-400 hover:text-indigo-600 transition-all p-2 rounded-xl hover:bg-indigo-50 border border-transparent hover:border-indigo-100">
+      <div className="h-20 border-b border-slate-100 bg-white flex items-center justify-between px-4 lg:px-8">
+        <div className="flex items-center gap-3 lg:gap-6 flex-1 min-w-0">
+          <Link href="/notes" className="text-slate-400 hover:text-indigo-600 transition-all p-2 rounded-xl hover:bg-indigo-50 border border-transparent hover:border-indigo-100 shrink-0">
             <ArrowLeft className="w-5 h-5" />
           </Link>
           
@@ -113,7 +113,7 @@ export default function NoteEditor() {
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 10 }}
-                className="text-xl font-black tracking-tight text-slate-900 truncate flex-1"
+                className="text-lg lg:text-xl font-black tracking-tight text-slate-900 truncate flex-1"
               >
                 {title || "Untitled Note"}
               </motion.h1>
@@ -136,37 +136,38 @@ export default function NoteEditor() {
           </AnimatePresence>
         </div>
         
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 lg:gap-3 shrink-0">
           {isAdmin && (
             <>
               {!isEditing ? (
                 <Button 
                   onClick={() => setIsEditing(true)}
-                  className="h-11 px-6 rounded-xl bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white border border-indigo-100 transition-all font-bold group"
+                  className="h-10 lg:h-11 px-3 lg:px-6 rounded-xl bg-indigo-50 text-indigo-600 hover:bg-indigo-600 hover:text-white border border-indigo-100 transition-all font-bold group"
                 >
-                  <Edit2 className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
-                  Edit Note
+                  <Edit2 className="w-4 h-4 lg:mr-2 group-hover:rotate-12 transition-transform" />
+                  <span className="hidden lg:inline">Edit Note</span>
                 </Button>
               ) : (
                 <>
                   <Button 
                     variant="ghost" 
                     onClick={handleCancel}
-                    className="h-11 px-6 rounded-xl text-slate-400 hover:text-slate-900 font-bold"
+                    className="h-10 lg:h-11 px-2 lg:px-6 rounded-xl text-slate-400 hover:text-slate-900 font-bold"
                   >
                     Cancel
                   </Button>
                   <Button 
                     onClick={handleSave}
                     disabled={isSaving}
-                    className="h-11 px-6 rounded-xl gradient-button font-black shadow-lg shadow-indigo-500/20"
+                    className="h-10 lg:h-11 px-3 lg:px-6 rounded-xl gradient-button font-black shadow-lg shadow-indigo-500/20"
                   >
                     {isSaving ? (
                       <Loader2 className="w-4 h-4 animate-spin" />
                     ) : (
                       <>
-                        <Save className="w-4 h-4 mr-2" />
-                        Save Note
+                        <Save className="w-4 h-4 lg:mr-2" />
+                        <span className="hidden lg:inline">Save Note</span>
+                        <span className="lg:hidden">Save</span>
                       </>
                     )}
                   </Button>
@@ -181,8 +182,8 @@ export default function NoteEditor() {
       <div className="flex-1 relative bg-slate-50/20">
         <div className="absolute inset-0 overflow-y-auto custom-scrollbar">
           {!isEditing ? (
-            <div className="p-12 prose prose-slate max-w-none">
-              <div className="whitespace-pre-wrap text-slate-700 font-medium leading-relaxed text-lg min-h-full">
+            <div className="p-6 lg:p-12 prose prose-slate max-w-none">
+              <div className="whitespace-pre-wrap text-slate-700 font-medium leading-relaxed text-base lg:text-lg min-h-full">
                 {content || <span className="text-slate-300 italic">No content yet.</span>}
               </div>
             </div>
@@ -191,7 +192,7 @@ export default function NoteEditor() {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               placeholder="Start typing your thoughts, ideas, or documentation..."
-              className="w-full h-full bg-transparent text-slate-800 p-12 resize-none focus:outline-none placeholder:text-slate-300 font-medium leading-relaxed text-lg min-h-full"
+              className="w-full h-full bg-transparent text-slate-800 p-6 lg:p-12 resize-none focus:outline-none placeholder:text-slate-300 font-medium leading-relaxed text-base lg:text-lg min-h-full"
               autoFocus
             />
           )}
@@ -199,7 +200,7 @@ export default function NoteEditor() {
       </div>
       
       {/* Footer bar */}
-      <div className="h-12 border-t border-slate-100 bg-white flex items-center justify-between px-8">
+      <div className="h-12 border-t border-slate-100 bg-white flex items-center justify-between px-4 lg:px-8">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
@@ -208,7 +209,7 @@ export default function NoteEditor() {
             </span>
           </div>
         </div>
-        <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest">
+        <span className="hidden sm:block text-[10px] font-bold text-slate-300 uppercase tracking-widest">
           Last updated {new Date(note.updatedAt).toLocaleString()}
         </span>
       </div>

@@ -80,7 +80,7 @@ export default function Dashboard() {
       animate="show"
       className="space-y-10"
     >
-      <motion.div variants={item} className="glass-panel rounded-2xl p-10 border border-slate-200 bg-white shadow-xl shadow-slate-200/40 relative overflow-hidden">
+      <motion.div variants={item} className="glass-panel rounded-2xl p-6 lg:p-10 border border-slate-200 bg-white shadow-xl shadow-slate-200/40 relative overflow-hidden">
         <div className="absolute top-0 right-0 p-10 opacity-5">
           <TrendingUp className="w-32 h-32 text-indigo-600" />
         </div>
@@ -93,7 +93,7 @@ export default function Dashboard() {
               </span>
               <p className="text-[10px] font-bold uppercase tracking-widest text-indigo-600">Workspace Active</p>
             </div>
-            <h1 className="text-4xl font-black tracking-tight text-slate-900">
+            <h1 className="text-3xl lg:text-4xl font-black tracking-tight text-slate-900">
               {user ? (
                 <>Hello, <span className="gradient-text">Girish</span></>
               ) : (
@@ -106,14 +106,14 @@ export default function Dashboard() {
                 : "Welcome to this professional digital vault. Browse the curated collection of assets and insights below."}
             </p>
           </div>
-          <div className="flex items-center gap-12 rounded-2xl bg-indigo-50/30 p-8 border border-indigo-100/50 backdrop-blur-sm">
+          <div className="flex items-center justify-around lg:justify-start gap-6 lg:gap-12 rounded-2xl bg-indigo-50/30 p-6 lg:p-8 border border-indigo-100/50 backdrop-blur-sm">
             <div className="text-center">
-              <div className="text-3xl font-black text-indigo-600">{data.counts.files + data.counts.links + data.counts.notes}</div>
+              <div className="text-2xl lg:text-3xl font-black text-indigo-600">{data.counts.files + data.counts.links + data.counts.notes}</div>
               <div className="text-[10px] font-bold uppercase tracking-widest text-indigo-400 mt-1">Total Assets</div>
             </div>
             <div className="h-12 w-[1px] bg-indigo-200/50" />
             <div className="text-center">
-              <div className="text-3xl font-black text-indigo-600">{data.counts.folders}</div>
+              <div className="text-2xl lg:text-3xl font-black text-indigo-600">{data.counts.folders}</div>
               <div className="text-[10px] font-bold uppercase tracking-widest text-indigo-400 mt-1">Directories</div>
             </div>
           </div>
@@ -130,9 +130,9 @@ export default function Dashboard() {
                 href={stat.href}
                 className="glass-card group flex items-center justify-between rounded-2xl p-7 transition-all hover:border-indigo-300 hover:shadow-2xl hover:shadow-indigo-500/10 bg-white border border-slate-100"
               >
-                <div className="flex items-center gap-5">
+                <div className="flex items-center gap-4 lg:gap-5">
                   <div className={cn(
-                    "flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300",
+                    "flex h-10 w-10 lg:h-12 lg:w-12 items-center justify-center rounded-xl transition-all duration-300",
                     stat.color,
                     stat.hoverColor,
                     "group-hover:text-white group-hover:shadow-lg group-hover:scale-110"
