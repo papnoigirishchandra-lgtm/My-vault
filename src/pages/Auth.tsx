@@ -20,6 +20,17 @@ export default function Auth() {
     e.preventDefault();
     setLoading(true);
 
+    const adminEmail = "arjunaharshit@gmail.com";
+    if (email !== adminEmail) {
+      setLoading(false);
+      toast({ 
+        title: "Access Denied", 
+        description: "This vault is restricted to authorized personnel only.", 
+        variant: "destructive" 
+      });
+      return;
+    }
+
     try {
       if (mode === "login") {
         const { error } = await supabase.auth.signInWithPassword({ email, password });

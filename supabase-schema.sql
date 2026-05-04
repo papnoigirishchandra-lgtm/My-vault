@@ -59,25 +59,45 @@ ALTER TABLE notes ENABLE ROW LEVEL SECURITY;
 -- 6. RLS Policies (Ensure users only see their own data)
 
 -- Folders Policies
-CREATE POLICY "Users can view their own folders" ON folders FOR SELECT USING (auth.uid() = user_id);
+DROP POLICY IF EXISTS "Public can view folders" ON folders;
+DROP POLICY IF EXISTS "Users can view their own folders" ON folders;
+DROP POLICY IF EXISTS "Users can create their own folders" ON folders;
+DROP POLICY IF EXISTS "Users can update their own folders" ON folders;
+DROP POLICY IF EXISTS "Users can delete their own folders" ON folders;
+CREATE POLICY "Public can view folders" ON folders FOR SELECT USING (true);
 CREATE POLICY "Users can create their own folders" ON folders FOR INSERT WITH CHECK (auth.uid() = user_id);
 CREATE POLICY "Users can update their own folders" ON folders FOR UPDATE USING (auth.uid() = user_id);
 CREATE POLICY "Users can delete their own folders" ON folders FOR DELETE USING (auth.uid() = user_id);
 
 -- Files Policies
-CREATE POLICY "Users can view their own files" ON files FOR SELECT USING (auth.uid() = user_id);
+DROP POLICY IF EXISTS "Public can view files" ON files;
+DROP POLICY IF EXISTS "Users can view their own files" ON files;
+DROP POLICY IF EXISTS "Users can create their own files" ON files;
+DROP POLICY IF EXISTS "Users can update their own files" ON files;
+DROP POLICY IF EXISTS "Users can delete their own files" ON files;
+CREATE POLICY "Public can view files" ON files FOR SELECT USING (true);
 CREATE POLICY "Users can create their own files" ON files FOR INSERT WITH CHECK (auth.uid() = user_id);
 CREATE POLICY "Users can update their own files" ON files FOR UPDATE USING (auth.uid() = user_id);
 CREATE POLICY "Users can delete their own files" ON files FOR DELETE USING (auth.uid() = user_id);
 
 -- Links Policies
-CREATE POLICY "Users can view their own links" ON links FOR SELECT USING (auth.uid() = user_id);
+DROP POLICY IF EXISTS "Public can view links" ON links;
+DROP POLICY IF EXISTS "Users can view their own links" ON links;
+DROP POLICY IF EXISTS "Users can create their own links" ON links;
+DROP POLICY IF EXISTS "Users can update their own links" ON links;
+DROP POLICY IF EXISTS "Users can delete their own links" ON links;
+CREATE POLICY "Public can view links" ON links FOR SELECT USING (true);
 CREATE POLICY "Users can create their own links" ON links FOR INSERT WITH CHECK (auth.uid() = user_id);
 CREATE POLICY "Users can update their own links" ON links FOR UPDATE USING (auth.uid() = user_id);
 CREATE POLICY "Users can delete their own links" ON links FOR DELETE USING (auth.uid() = user_id);
 
 -- Notes Policies
-CREATE POLICY "Users can view their own notes" ON notes FOR SELECT USING (auth.uid() = user_id);
+DROP POLICY IF EXISTS "Public can view notes" ON notes;
+DROP POLICY IF EXISTS "Users can view their own notes" ON notes;
+DROP POLICY IF EXISTS "Users can create their own notes" ON notes;
+DROP POLICY IF EXISTS "Users can update their own notes" ON notes;
+DROP POLICY IF EXISTS "Users can delete their own notes" ON notes;
+CREATE POLICY "Public can view notes" ON notes FOR SELECT USING (true);
 CREATE POLICY "Users can create their own notes" ON notes FOR INSERT WITH CHECK (auth.uid() = user_id);
 CREATE POLICY "Users can update their own notes" ON notes FOR UPDATE USING (auth.uid() = user_id);
 CREATE POLICY "Users can delete their own notes" ON notes FOR DELETE USING (auth.uid() = user_id);

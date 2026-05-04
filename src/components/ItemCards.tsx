@@ -47,6 +47,8 @@ function CardActions({
 }) {
   const { isAdmin } = useAuth();
   
+  if (!isAdmin) return null;
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild onClick={(e) => e.stopPropagation()}>
@@ -60,19 +62,15 @@ function CardActions({
           {isFavorite ? "Remove from Favorites" : "Add to Favorites"}
         </DropdownMenuItem>
         
-        {isAdmin && (
-          <>
-            <DropdownMenuItem onClick={(e) => { e.stopPropagation(); onEditRequest(); }} className="cursor-pointer focus:bg-slate-50 rounded-lg">
-              <Edit2 className="w-4 h-4 mr-2" />
-              Edit Details
-            </DropdownMenuItem>
-            <div className="h-[1px] bg-slate-100 my-1" />
-            <DropdownMenuItem onClick={(e) => { e.stopPropagation(); onDeleteRequest(); }} className="text-red-600 focus:bg-red-50 focus:text-red-600 cursor-pointer font-semibold rounded-lg">
-              <Trash2 className="w-4 h-4 mr-2" />
-              Delete {type}
-            </DropdownMenuItem>
-          </>
-        )}
+        <DropdownMenuItem onClick={(e) => { e.stopPropagation(); onEditRequest(); }} className="cursor-pointer focus:bg-slate-50 rounded-lg">
+          <Edit2 className="w-4 h-4 mr-2" />
+          Edit Details
+        </DropdownMenuItem>
+        <div className="h-[1px] bg-slate-100 my-1" />
+        <DropdownMenuItem onClick={(e) => { e.stopPropagation(); onDeleteRequest(); }} className="text-red-600 focus:bg-red-50 focus:text-red-600 cursor-pointer font-semibold rounded-lg">
+          <Trash2 className="w-4 h-4 mr-2" />
+          Delete {type}
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

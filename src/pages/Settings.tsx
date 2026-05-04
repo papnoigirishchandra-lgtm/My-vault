@@ -13,8 +13,7 @@ import {
   Bell, 
   ChevronRight,
   Loader2,
-  CheckCircle2,
-  AlertCircle
+  CheckCircle2
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 
@@ -56,12 +55,7 @@ export default function Settings() {
     toast({ title: "Backup successful", description: "Your vault metadata has been exported." });
   };
 
-  const handleClearData = () => {
-    if (confirm("Are you sure? This will delete all your local notes, links, and file references. The actual files in Supabase will NOT be deleted.")) {
-      localStorage.removeItem("vault-dashboard-data");
-      window.location.reload();
-    }
-  };
+
 
   const sections = [
     {
@@ -157,24 +151,6 @@ export default function Settings() {
                 <p className="text-[10px] font-medium text-slate-400 uppercase tracking-tighter">Go to Supabase</p>
               </div>
             </button>
-          </div>
-
-          <div className="p-6 rounded-[24px] bg-red-50 border border-red-100">
-            <div className="flex items-center gap-3 text-red-600 mb-4">
-              <AlertCircle className="h-5 w-5" />
-              <h3 className="font-black text-sm uppercase tracking-widest">Danger Zone</h3>
-            </div>
-            <p className="text-xs text-red-600/70 mb-6 font-medium leading-relaxed">
-              Clearing local data will reset your dashboard and remove all locally stored items. This action cannot be undone. 
-              Files stored in the cloud will remain safe.
-            </p>
-            <Button 
-              onClick={handleClearData}
-              variant="destructive"
-              className="w-full rounded-xl font-bold h-12 shadow-lg shadow-red-200 hover:shadow-red-300"
-            >
-              Reset All Local Data
-            </Button>
           </div>
         </div>
       )
