@@ -20,7 +20,7 @@ export default defineConfig({
       "@assets": path.resolve(import.meta.dirname, "public"),
       "@workspace/api-client-react": path.resolve(
         import.meta.dirname,
-        "src/lib/local-api-client.ts",
+        "src/lib/supabase-api-client.ts",
       ),
     },
     dedupe: ["react", "react-dom"],
